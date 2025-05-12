@@ -10,6 +10,7 @@ import org.testng.annotations.*;
 
 import java.time.Duration;
 import java.util.List; // Thêm import này nếu chưa có
+import java.util.concurrent.TimeoutException;
 
 public class LoginTest {
 
@@ -18,7 +19,7 @@ public class LoginTest {
     String baseUrl = "https://webuser-dev-ex.iigvietnam.com/";
 
     // --- Locators (CẦN ĐƯỢC KIỂM TRA VÀ CẬP NHẬT CHÍNH XÁC BẰNG INSPECT ELEMENT) ---
-    By initialLoginButton = By.xpath("//button[contains(text(),'Đăng nhập')]");
+    By initialLoginButton = By.xpath("//button[.//span[normalize-space()='Đăng nhập']]");
     By loginModal = By.xpath("//div[contains(@class, 'modal-login')]"); // Cần tìm class/id đúng
     By emailInput = By.xpath("//input[@placeholder='Email hoặc số điện thoại đăng nhập']");
     By passwordInput = By.xpath("//input[@placeholder='Mật khẩu']");
